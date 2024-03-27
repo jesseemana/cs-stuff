@@ -101,22 +101,25 @@ namespace MegaApplication
                 new Owner { OwnerID = 2, Name = "Sally Stone", },
             };
 
-            var innerjoin = from dog in dogs
-                            join owner in owners
-                            on dog.AnimalID equals owner.OwnerID
-                            select new { OwnerName = owner.Name, DogName = dog.Name };
+            var innerjoin =
+                        from dog in dogs
+                        join owner in owners
+                        on dog.AnimalID equals owner.OwnerID
+                        select new { OwnerName = owner.Name, DogName = dog.Name };
 
-            var groupjoin = from owner in owners
-                            orderby owner.OwnerID
-                            join dog in dogs on owner.OwnerID
-                            equals dog.AnimalID into ownerGroup
-                            select new
-                            {
-                                Owner = owner.Name,
-                                Dog = from newowner in ownerGroup
-                                      orderby newowner.Name
-                                      select newowner
-                            };
+            var groupjoin =
+                        from owner in owners
+                        orderby owner.OwnerID
+                        join dog in dogs on owner.OwnerID
+                        equals dog.AnimalID into ownerGroup
+                        select new
+                        {
+                            Owner = owner.Name,
+                            Dog =
+                                from newowner in ownerGroup
+                                orderby newowner.Name
+                                select newowner
+                        };
 
             foreach (var i in innerjoin)
             {
