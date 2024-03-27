@@ -29,13 +29,42 @@ namespace MegaApplication
             // Console.WriteLine("New box {0}", new_box2.ToString());
             #endregion
 
-            LinqStuff.GetAnimals();
+            // LinqStuff.GetAnimals();
+
+            #region Threads
+
+            // Threads.Delayed();
+            // Threads.StartThread();
+            // BankAcc acc = new(10);
+            // Thread[] threads = new Thread[15];
+
+            // Thread.CurrentThread.Name = "main";
+
+            // for (int i = 0; i < 15; i++)
+            // {
+            //     Thread t = new(new ThreadStart(acc.IssueWithdraw))
+            //     {
+            //         Name = i.ToString()
+            //     };
+            //     threads[i] = t;
+            // }
+
+            // for (int i = 0; i < 15; i++)
+            // {
+            //     Console.WriteLine("Thread {0} is alive: {1}", threads[i].Name, threads[i].IsAlive);
+            //     threads[i].Start();
+            //     Console.WriteLine("Thread {0} is alive: {1}", threads[i].Name, threads[i].IsAlive);
+            // }
             
+            // Console.WriteLine("Thread {0} is ending...", Thread.CurrentThread.Name);
+
+            #endregion
+
         }
 
         delegate double dblIt(double val);
 
-        #region Higher Order Functions(Lambdas)
+        #region Lambdas(Higher Order Functions)
         // Other Higher Order Functinons
         // var array1 = new int[] { 1, 2, 3, 4 };
         // var array2 = new int[] { 2, 7, 4, 9 };
@@ -63,5 +92,6 @@ namespace MegaApplication
             return numbers.Where(a => a % 2 == 0).ToList();
         }
         #endregion
+
     }
 }
